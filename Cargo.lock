@@ -1109,7 +1109,7 @@ checksum = "bbd2bcb4c963f2ddae06a2efc7e9f3591312473c50c6685e1f298068316e66fe"
 [[package]]
 name = "leptonic"
 version = "0.5.0"
-source = "git+https://github.com/tempbottle/leptonic?rev=10b8bb0#10b8bb0b154d99062f44c75cb7c2be9a23d9e977"
+source = "git+https://github.com/tempbottle/leptonic?rev=3663875#3663875aeb8c282691aeaa0e2000e24faa81bf15"
 dependencies = [
  "anyhow",
  "cargo_toml",
@@ -1167,7 +1167,7 @@ dependencies = [
 [[package]]
 name = "leptonic-theme"
 version = "0.5.0"
-source = "git+https://github.com/tempbottle/leptonic?rev=10b8bb0#10b8bb0b154d99062f44c75cb7c2be9a23d9e977"
+source = "git+https://github.com/tempbottle/leptonic?rev=3663875#3663875aeb8c282691aeaa0e2000e24faa81bf15"
 dependencies = [
  "anyhow",
  "include_dir",
