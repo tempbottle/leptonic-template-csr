@@ -1,5 +1,6 @@
 use leptonic::components::prelude::*;
 use leptos::*;
+use leptos::prelude::*;
 use thiserror::Error;
 
 #[derive(Clone, Debug, Error)]
@@ -16,7 +17,7 @@ pub fn ErrorTemplate(
     #[prop(optional)] errors: Option<RwSignal<Errors>>,
 ) -> impl IntoView {
     let errors = match outside_errors {
-        Some(e) => create_rw_signal(e),
+        Some(e) => RwSignal::new(e),
         None => match errors {
             Some(e) => e,
             None => panic!("No Errors found and we expected errors!"),
@@ -35,11 +36,11 @@ pub fn ErrorTemplate(
     let num_errors = errors.len();
 
     view! {
-        <Box style="display: flex; flex-direction: column; align-items:center;">
-            <H1>{match num_errors {
+        <div style="display: flex; flex-direction: column; align-items:center;">
+            <h1>{match num_errors {
                 1 => "Error",
                 _ => "Errors",
-            }}</H1>
+            }}</h1>
 
             <For
                 each=move || { errors.clone().into_iter().enumerate() }
@@ -47,7 +48,7 @@ pub fn ErrorTemplate(
                 children=move |(_index, error)| {
                     match error {
                         AppError::NotFound => view! {
-                            <P>"404 - Not Found"</P>
+                            <p>"404 - Not Found"</p>
                         },
                     }
                 }
@@ -56,6 +57,6 @@ pub fn ErrorTemplate(
             <LinkButton href="/">
                 "Back"
             </LinkButton>
-        </Box>
+        </div>
     }
 }
